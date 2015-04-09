@@ -170,6 +170,10 @@ var Utils = {
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#39;");
     },
+    isCrossDomain: function(url) {
+        var matches = url.match(/^(https?:)\/\/([^\/]+)(\/|$)/i);
+        return !!(matches && matches.length && (matches[1] != location.protocol || matches[2] != location.host));
+    },
     ui: ui
 };
 
